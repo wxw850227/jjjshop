@@ -1,0 +1,152 @@
+/*圆角*/
+@mixin border-radius($radius...) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/*阴影*/
+@mixin box-shadow($shadows...) { 
+    -moz-box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+}
+
+/*文字阴影*/
+@mixin text-shadow($shadows...){
+    text-shadow:$shadows;
+}
+
+/*线性渐变*/
+@mixin linear-gradient($val...){
+  background: -webkit-linear-gradient($val); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient($val); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient($val); /* Firefox 3.6 - 15 */
+  background: linear-gradient($val); /* 标准的语法 */
+}
+
+
+/*垂直居中*/
+@mixin vertical-center() {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
+/*去除padding 宽度*/
+@mixin box-sizing-border() {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* Firefox */
+    -webkit-box-sizing: border-box;
+    /* Safari */
+}
+
+
+/*css3盒子
+ * flex-direction: row  row-reverse column  column-reverse
+ * flex-wrap: nowrap wrap wrap-reverse
+ * justify-content: flex-start flex-end center space-between space-around
+ * align-items: stretch flex-start flex-end center beseline
+ * align-content: stretch flex-start flex-end center space-between space-around
+ * */
+
+@mixin display-flex() {
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-direction($value) {
+    @include display-flex();
+    -webkit-flex-direction: $value;
+    flex-direction: $value;
+}
+
+@mixin flex-wrap($value) {
+    @include display-flex();
+    -webkit-flex-wrap: $value;
+    flex-wrap: $value;
+}
+
+@mixin justify-content($value) {
+    @include display-flex();
+    -webkit-justify-content: $value;
+    justify-content: $value;
+}
+
+@mixin align-items($value) {
+    @include display-flex();
+    -webkit-align-items: $value;
+    align-items: $value;
+}
+
+@mixin align-content($value) {
+    @include display-flex();
+    -webkit-align-content: $value;
+    align-content: $value;
+}
+
+/*设置flex*/
+@mixin flex-num($num) {
+    -webkit-box-flex: $num;
+    -ms-flex: $num;
+    flex: $num;
+}
+
+
+/*一行截取*/
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*多行截取*/
+@mixin ellipsis-clamp($num) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+
+/*旋转角度，x,y位移*/
+@mixin rotate-origin($num, $x, $y) {
+    transform: rotate($num);
+    transform-origin: $x $y;
+    -ms-transform: rotate($num);
+    /* IE 9 */
+    -ms-transform-origin: $x $y;
+    /* IE 9 */
+    -webkit-transform: rotate($num);
+    /* Safari and Chrome */
+    -webkit-transform-origin: $x $y;
+    /* Safari and Chrome */
+}
+
+/*旋转*/
+@mixin transform-rotate($deg){
+    transform: rotate($deg);
+    -ms-transform: rotate($deg); /* IE 9 */
+    -webkit-transform: rotate($deg); /* Safari and Chrome */
+}
+
+/*过度*/
+@mixin transition($val...){
+    transition: $val;
+    -webkit-transition: $val; /* Safari */
+}
+
+/*模糊*/
+@mixin filter($val...){
+    -webkit-filter: blur($val);
+   filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');
+}
