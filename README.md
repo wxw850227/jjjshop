@@ -1,48 +1,49 @@
-### Èı¹´ÉÌ³ÇĞ¡³Ì¡¢Ö§³Ö¶à¶Ë·¢²¼£¬Ò»Ì×´úÂë·¢²¼µ½8¸öÆ½Ì¨£¬ÃæÏò¿ª·¢£¬·½±ã¶ş´Î¿ª·¢
+### ä¸‰å‹¾å•†åŸå°ç¨‹ã€æ”¯æŒå¤šç«¯å‘å¸ƒï¼Œä¸€å¥—ä»£ç å‘å¸ƒåˆ°8ä¸ªå¹³å°ï¼Œé¢å‘å¼€å‘ï¼Œæ–¹ä¾¿äºŒæ¬¡å¼€å‘
+
+ä¸‰å‹¾å°ç¨‹åºå•†åŸåŸºäºthinkphp6+element-ui+uniappæ‰“é€ çš„é¢å‘å¼€å‘çš„å¾®ä¿¡å°ç¨‹åºå•†åŸï¼Œå¾®ä¿¡å…¬ä¼—å·å•†åŸï¼Œå¾®å•†åŸï¼Œæ–¹ä¾¿äºŒæ¬¡å¼€å‘æˆ–ç›´æ¥ä½¿ç”¨ã€‚thinkphp6å…¨æ–°thinkphpæ¡†æ¶ï¼Œæ–¹ä¾¿æ˜“å­¦ï¼ŒåŠŸèƒ½å¼ºå¤§ã€‚element-uiï¼Œæ˜¯ä¸€å¥—é¥¿äº†ä¹ˆå‰ç«¯å›¢é˜Ÿï¼Œä¸ºå¼€å‘è€…ã€è®¾è®¡å¸ˆå’Œäº§å“ç»ç†å‡†å¤‡çš„åŸºäº Vue 2.0 çš„æ¡Œé¢ç«¯ç»„ä»¶åº“ã€‚uni-app æ˜¯ä¸€ä¸ªä½¿ç”¨ Vue.js å¼€å‘æ‰€æœ‰å‰ç«¯åº”ç”¨çš„æ¡†æ¶ï¼Œå¼€å‘è€…ç¼–å†™ä¸€å¥—ä»£ç ï¼Œå¯å‘å¸ƒåˆ°iOSã€Androidã€H5ã€ä»¥åŠå„ç§å°ç¨‹åºï¼ˆå¾®ä¿¡/æ”¯ä»˜å®/ç™¾åº¦/å¤´æ¡/QQ/é’‰é’‰/æ·˜å®ï¼‰ã€å¿«åº”ç”¨ç­‰å¤šä¸ªå¹³å°ã€‚
+
+**é¡¹ç›®ä»‹ç»** 
+
+ä¸‰å‹¾å°ç¨‹åºå•†åŸåŸºäºthinkphp6+element-ui+uniappæ‰“é€ çš„é¢å‘å¼€å‘çš„å°ç¨‹åºå•†åŸï¼Œæ–¹ä¾¿äºŒæ¬¡å¼€å‘æˆ–ç›´æ¥ä½¿ç”¨ï¼Œå¯å‘å¸ƒåˆ°å¤šç«¯ï¼ŒåŒ…æ‹¬å¾®ä¿¡å°ç¨‹åºã€å¾®ä¿¡å…¬ä¼—å·ã€QQå°ç¨‹åºã€æ”¯ä»˜å®å°ç¨‹åºã€å­—èŠ‚è·³åŠ¨å°ç¨‹åºã€ç™¾åº¦å°ç¨‹åºã€androidç«¯ã€iosç«¯ã€‚
 
 
-**ÏîÄ¿½éÉÜ** 
+**é¡¹ç›®æ¼”ç¤º** 
 
-Èı¹´Ğ¡³ÌĞòÉÌ³Ç»ùÓÚthinkphp6+element-ui+uniapp´òÔìµÄÃæÏò¿ª·¢µÄĞ¡³ÌĞòÉÌ³Ç£¬·½±ã¶ş´Î¿ª·¢»òÖ±½ÓÊ¹ÓÃ£¬¿É·¢²¼µ½¶à¶Ë£¬°üÀ¨Î¢ĞÅĞ¡³ÌĞò¡¢Î¢ĞÅ¹«ÖÚºÅ¡¢QQĞ¡³ÌĞò¡¢Ö§¸¶±¦Ğ¡³ÌĞò¡¢×Ö½ÚÌø¶¯Ğ¡³ÌĞò¡¢°Ù¶ÈĞ¡³ÌĞò¡¢android¶Ë¡¢ios¶Ë¡£
+å®˜ç½‘åœ°å€ï¼šhttp://www.jjjshop.net/      
 
+åå°æ¼”ç¤ºï¼šhttps://demo.jjjshop.net/shop     è´¦å·å¯†ç ï¼šadmin/123456
 
-**ÏîÄ¿ÑİÊ¾** 
+äº¤æµQQç¾¤ï¼š9512087
 
-¹ÙÍøµØÖ·£ºhttp://www.jjjshop.net/      
+ **æ‰«ç ä½“éªŒå¾®ä¿¡å°ç¨‹åº** 
 
-ºóÌ¨ÑİÊ¾£ºhttps://demo.jjjshop.net/shop     ÕËºÅÃÜÂë£ºadmin/123456
+![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/124128_0cb8eee9_1699189.jpeg "gh_a4bc432512c9_258.jpg")
 
-½»Á÷QQÈº£º9512087
+ **å°ç¨‹åºæˆªå›¾**
 
- **É¨ÂëÌåÑéÎ¢ĞÅĞ¡³ÌĞò** 
-
-![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/124128_0cb8eee9_1699189.jpeg "gh_a4bc432512c9_258.jpg")
-
- **Ğ¡³ÌĞò½ØÍ¼**
-
-|  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152028_cacd6623_1699189.jpeg "1.jpg")  |  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152103_c6813475_1699189.jpeg "2.jpg") |   ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152658_e93cde69_1699189.jpeg "3.jpg") |   ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152710_6715bea5_1699189.jpeg "4.jpg")  |
+|  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152028_cacd6623_1699189.jpeg "1.jpg")  |  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152103_c6813475_1699189.jpeg "2.jpg") |   ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152658_e93cde69_1699189.jpeg "3.jpg") |   ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152710_6715bea5_1699189.jpeg "4.jpg")  |
 |---|---|---|---|
-|  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152746_b172ecb3_1699189.jpeg "5.jpg")  |  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152819_163da99e_1699189.jpeg "6.jpg") | ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152829_8f9d617f_1699189.jpeg "7.jpg")  |   ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/152839_00673df9_1699189.jpeg "8.jpg") |
-|  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153101_c7dae4d2_1699189.jpeg "9.jpg") | ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153112_efc06adb_1699189.jpeg "10.jpg")  |   |   |
+|  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152746_b172ecb3_1699189.jpeg "5.jpg")  |  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152819_163da99e_1699189.jpeg "6.jpg") | ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152829_8f9d617f_1699189.jpeg "7.jpg")  |   ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/152839_00673df9_1699189.jpeg "8.jpg") |
+|  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153101_c7dae4d2_1699189.jpeg "9.jpg") | ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153112_efc06adb_1699189.jpeg "10.jpg")  |   |   |
 
 
- **ºóÌ¨½ØÍ¼** 
+ **åå°æˆªå›¾** 
 
-|![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153807_005336f6_1699189.png "1.png")   |  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153819_72ba1c9f_1699189.png "2.png") |
+|![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153807_005336f6_1699189.png "1.png")   |  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153819_72ba1c9f_1699189.png "2.png") |
 |---|---|
-| ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153907_bd03e041_1699189.png "3.png")  | ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153916_7f0afa3d_1699189.png "4.png")  |
-|  ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153925_194bebf9_1699189.png "5.png") | ![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2020/0601/153935_cfdbd8f4_1699189.png "6.png")  |
+| ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153907_bd03e041_1699189.png "3.png")  | ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153916_7f0afa3d_1699189.png "4.png")  |
+|  ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153925_194bebf9_1699189.png "5.png") | ![è¾“å…¥å›¾ç‰‡è¯´æ˜](https://images.gitee.com/uploads/images/2020/0601/153935_cfdbd8f4_1699189.png "6.png")  |
 
- **Èí¼ş¼Ü¹¹**
+ **è½¯ä»¶æ¶æ„**
 
-ºó¶Ë£ºthinkphp6 ¹ÜÀí¶ËÒ³Ãæ£ºelement-ui Ğ¡³ÌĞò¶Ë£ºuniapp¡£
+åç«¯ï¼šthinkphp6 ç®¡ç†ç«¯é¡µé¢ï¼šelement-ui å°ç¨‹åºç«¯ï¼šuniappã€‚
 
-²¿Êğ»·¾³½¨Òé£ºLinux + Nginx + PHP7 + MySQL5.6£¬ÉÏÊÖ½¨ÒéÖ±½ÓÓÃ±¦Ëş¼¯³É»·¾³¡£
+éƒ¨ç½²ç¯å¢ƒå»ºè®®ï¼šLinux + Nginx + PHP7 + MySQL5.6ï¼Œä¸Šæ‰‹å»ºè®®ç›´æ¥ç”¨å®å¡”é›†æˆç¯å¢ƒã€‚
 
- **°²×°½Ì³Ì¡¢¿ª·¢ÎÄµµ¡¢²Ù×÷ÊÖ²áÇë½øÈë¹ÙÍø²éÑ¯** 
+ **å®‰è£…æ•™ç¨‹ã€å¼€å‘æ–‡æ¡£ã€æ“ä½œæ‰‹å†Œè¯·è¿›å…¥å®˜ç½‘æŸ¥è¯¢** 
 
-[¹ÙÍøÁ´½Ó](http://www.jjjshop.net)
+[å®˜ç½‘é“¾æ¥](http://www.jjjshop.net)
 
- **bug·´À¡**
+ **bugåé¦ˆ**
 
-Èç¹ûÄã·¢ÏÖÁËbug£¬Çë·¢ËÍÓÊ¼şµ½ bug@jiujiujia.net£¬ÎÒÃÇ½«¼°Ê±ĞŞ¸´²¢¸üĞÂ¡£ 
+å¦‚æœä½ å‘ç°äº†bugï¼Œè¯·å‘é€é‚®ä»¶åˆ° bug@jiujiujia.netï¼Œæˆ‘ä»¬å°†åŠæ—¶ä¿®å¤å¹¶æ›´æ–°ã€‚ 
