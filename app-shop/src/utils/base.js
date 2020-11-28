@@ -149,3 +149,19 @@ export const deepMerger = (obj1, obj2) => {
   }
   return obj1;
 }
+
+/*
+ *格式
+ */
+export const formatModel = (obj1, obj2) => {
+  for (var key in obj1) {
+    if(obj2&&typeof(obj2[key])!='undefined'){
+      if (obj1[key] && typeof obj1[key] === "object") {
+        formatModel(obj1[key],obj2[key]);
+      }else{
+        obj1[key]=obj2[key];
+      }
+    }
+  }
+  return obj1;
+}

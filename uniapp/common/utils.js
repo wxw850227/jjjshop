@@ -25,6 +25,13 @@ var utils = {
 		// 将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式 
 		return time.replace(/\-/g, "/");
 	},
+	
+	/**
+	 * 格式化详情内容,去除图片之间的间隙，图片宽度最大100%
+	 */
+	format_content(str) {
+		return str.replace(/\<img/gi, '<img style="display:block; margin:0 auto; max-width:100%;" ');
+	},
 
 	/**
 	 * 对象转URL
@@ -86,7 +93,13 @@ var utils = {
 			result = result[pathArr[i]];
 		}
 		return result
-	}
+	},
+	/**
+	 * 获取场景值(scene)
+	 */
+	getSceneData(query) {
+		return query.scene ? this.scene_decode(query.scene) : {};
+	},
 
 };
 export default utils;

@@ -12,6 +12,9 @@
       </div>
       <!--右边操作-->
       <div class="header-navbar">
+        <div style="padding-right: 10px;">
+          <a href="http://demo2.jjjshop.net/shop">商业版演示入口</a>
+        </div>
         <!--操作员账号-->
         <div class="header-navbar-icon">
           <span class="ml4"><Icon :iconname="'#icon-geren9'"></Icon></span>

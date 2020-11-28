@@ -307,7 +307,61 @@ class Page extends BaseModel
                     'bottom' => '10',
                     'opacity' => '100'
                 ]
-            ]
+            ],
+            'article' => [
+                'name' => '文章组',
+                'type' => 'article',
+                'group' => 'media',
+                'params' => [
+                    'source' => 'auto', // choice; auto
+                    'auto' => [
+                        'category' => 0,
+                        'showNum' => 6
+                    ]
+                ],
+                'style' => [],
+                // '自动获取' => 默认数据
+                'defaultData' => [
+                    [
+                        'article_title' => '此处显示文章标题',
+                        'show_type' => 10,
+                        'image' => self::$base_url . 'image/diy/article/01.png',
+                        'views_num' => 309
+                    ],
+                    [
+                        'article_title' => '此处显示文章标题',
+                        'show_type' => 10,
+                        'image' => self::$base_url . 'image/diy/article/01.png',
+                        'views_num' => 309
+                    ]
+                ],
+                // '手动选择' => 默认数据
+                'data' => []
+            ],
+            'special' => [
+                'name' => '头条快报',
+                'type' => 'special',
+                'group' => 'media',
+                'params' => [
+                    'source' => 'auto', // choice; auto
+                    'auto' => [
+                        'category' => 0,
+                        'showNum' => 6
+                    ]
+                ],
+                'style' => [
+                    'display' => 1,
+                    'image' => self::$base_url . 'image/diy/special.png'
+                ],
+                // '自动获取' => 默认数据
+                'defaultData' => [
+                    [
+                        'article_title' => '此处显示头条快报标题'
+                    ]
+                ],
+                // '手动选择' => 默认数据
+                'data' => []
+            ],
         ];
     }
 

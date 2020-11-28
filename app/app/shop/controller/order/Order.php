@@ -4,10 +4,7 @@ namespace app\shop\controller\order;
 
 use app\shop\controller\Controller;
 use app\shop\model\order\Order as OrderModel;
-use app\shop\model\store\Store as StoreModel;
-use app\common\enum\settings\DeliveryTypeEnum;
 use app\shop\model\settings\Express as ExpressModel;
-use app\shop\model\store\Clerk as ShopClerkModel;
 
 /**
  * 订单控制器

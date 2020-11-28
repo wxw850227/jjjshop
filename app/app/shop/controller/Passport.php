@@ -45,6 +45,6 @@ class Passport extends Controller
         if ($model->editPass($this->postData(), $this->store['user'])) {
             return $this->renderSuccess('修改成功');
         }
-        return $this->renderError('修改失败');
+        return $this->renderError($model->getError()?:'修改失败');
     }
 }

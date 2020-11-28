@@ -21,4 +21,16 @@ class Access extends BaseModel
         $data = static::withoutGlobalScope()->order(['sort' => 'asc', 'create_time' => 'asc'])->select();
         return $data ? $data->toArray() : [];
     }
+
+    /**
+     * 权限信息
+     */
+    public static function detail($where)
+    {
+        if(is_array($where)){
+            return static::where($where)->find();
+        } else{
+            return static::where('access_id', '=', $where)->find();
+        }
+    }
 }

@@ -1,4 +1,3 @@
-/*创建权限*/
 function createdAuth(list,obj){
   for (let i = 0; i < list.length; i++) {
     let item = list[i];

@@ -34,7 +34,8 @@ class Base
         // 小程序配置信息
         $app = AppWx::getApp($app_id);
         // 请求api获取小程序码
-        $response = $app->app_code->get($page, [
+        $response = $app->app_code->getUnlimit($scene, [
+            'page' => $page,
             'width' => 430
         ]);
         // 保存小程序码到文件

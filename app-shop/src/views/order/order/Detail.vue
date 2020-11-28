@@ -78,6 +78,7 @@
                 <div class="pic"><img v-img-url="scope.row.image.file_path" /></div>
                 <div class="info">
                   <div class="name">{{ scope.row.product_name }}</div>
+                  <div class="gray9" v-if="scope.row.product_attr!=''">{{scope.row.product_attr}}</div>
                   <div class="price">￥ {{ scope.row.product_price }}</div>
                 </div>
               </div>

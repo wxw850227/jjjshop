@@ -43,7 +43,7 @@ class Product extends Controller
      */
     public function add($scene = 'add')
     {
-        $data = $this->postData();
+        $data = json_decode($this->postData()['params'], true);
 
         if($scene == 'copy'){
             unset($data['create_time']);
@@ -51,6 +51,13 @@ class Product extends Controller
             unset($data['sku']['product_id']);
             unset($data['product_sku']['product_sku_id']);
             unset($data['product_sku']['product_id']);
+            if($data['spec_type'] == 20){
+                foreach ($data['spec_many']['spec_list'] as &$spec){
+                    $spec['product_sku_id'] = 0;
+                }
+            }
+            //初始化销量等数据
+            $data['sales_initial'] = 0;
         }
 
         $model = new ProductModel;
@@ -92,7 +99,7 @@ class Product extends Controller
         // 商品详情
         $model = ProductModel::detail($product_id);
         // 更新记录
-        if ($model->edit($this->postData())) {
+        if ($model->edit(json_decode($this->postData()['params'], true))) {
             return $this->renderSuccess('更新成功');
         }
         return $this->renderError($model->getError() ?: '更新失败');

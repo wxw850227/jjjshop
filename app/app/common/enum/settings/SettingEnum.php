@@ -21,6 +21,9 @@ class SettingEnum extends Enum
     // 短信通知
     const SMS = 'sms';
 
+    // 引导收藏
+    const COLLECTION = 'collection';
+
     /**
      * 获取订单类型值
      */
@@ -42,6 +45,10 @@ class SettingEnum extends Enum
             self::SMS => [
                 'value' => self::SMS,
                 'describe' => '短信通知',
+            ],
+            self::COLLECTION => [
+                'value' => self::COLLECTION,
+                'describe' => '引导收藏',
             ],
         ];
     }

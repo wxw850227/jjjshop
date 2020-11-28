@@ -176,7 +176,6 @@
 			},
 			initial_let_rig() {
 				let broadcastData = [...this.broadcastData];
-				console.log(this.direction, 'this.direction')
 				if (this.direction == "right") {
 					broadcastData.reverse();
 				}

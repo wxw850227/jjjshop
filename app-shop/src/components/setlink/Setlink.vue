@@ -4,12 +4,20 @@
           时间：2020-01-08
           描述：超链接选择
       -->
-  <el-dialog title="超链接设置" :visible.sync="dialogVisible" @close="dialogFormVisible" :close-on-click-modal="false" :close-on-press-escape="false">
+  <el-dialog title="超链接设置" :visible.sync="dialogVisible" @close="dialogFormVisible" :close-on-click-modal="false"
+    :close-on-press-escape="false">
     <!--内容-->
     <el-tabs type="border-card" v-model="activeName">
       <!--页面-->
-      <el-tab-pane label="页面" name="pages"><Pages v-if="activeName == 'pages'" @changeData="activeDataFunc"></Pages></el-tab-pane>
-      <el-tab-pane label="产品" name="product"><Product v-if="activeName == 'product'" @changeData="activeDataFunc"></Product></el-tab-pane>
+      <el-tab-pane label="页面" name="pages">
+        <Pages v-if="activeName == 'pages'" @changeData="activeDataFunc"></Pages>
+      </el-tab-pane>
+      <el-tab-pane label="产品" name="product">
+        <Product v-if="activeName == 'product'" @changeData="activeDataFunc"></Product>
+      </el-tab-pane>
+      <el-tab-pane label="文章" name="Article">
+        <Article v-if="activeName == 'Article'" @changeData="activeDataFunc"></Article>
+      </el-tab-pane>
     </el-tabs>
     <div slot="footer" class="dialog-footer d-b-c">
       <div>
@@ -30,47 +38,53 @@
 </template>
 
 <script>
-import Pages from './part/Pages.vue';
-import Product from './part/Product.vue';
-export default {
-  components: {
-    Pages,
-    Product
-  },
-  data() {
-    return {
-      /*是否显示*/
-      dialogVisible: true,
-      /*选中的链接*/
-      activeData: null,
-      activeName: 'pages'
-    };
-  },
-  props: ['is_linkset'],
-  created() {
-    this.dialogVisible = this.is_linkset;
-  },
-  methods: {
-    /*关闭弹窗*/
-    dialogFormVisible(e) {
-      if (e) {
-        console.log(this.activeData);
-        this.$emit('closeDialog', this.activeData);
-      } else {
-        this.$emit('closeDialog', {url:null,type:'',name:''});
-      }
+  import Pages from './part/Pages.vue';
+  import Product from './part/Product.vue';
+  import Article from './part/Article.vue';
+  export default {
+    components: {
+      Pages,
+      Product,
+      Article
     },
+    data() {
+      return {
+        /*是否显示*/
+        dialogVisible: true,
+        /*选中的链接*/
+        activeData: null,
+        activeName: 'pages'
+      };
+    },
+    props: ['is_linkset'],
+    created() {
+      this.dialogVisible = this.is_linkset;
+    },
+    methods: {
+      /*关闭弹窗*/
+      dialogFormVisible(e) {
+        if (e) {
+          console.log(this.activeData);
+          this.$emit('closeDialog', this.activeData);
+        } else {
+          this.$emit('closeDialog', {
+            url: null,
+            type: '',
+            name: ''
+          });
+        }
+      },
 
-    /*页面返回值*/
-    activeDataFunc(e) {
-      this.activeData = e;
+      /*页面返回值*/
+      activeDataFunc(e) {
+        this.activeData = e;
+      }
     }
-  }
-};
+  };
 </script>
 
 <style>
-.marketing-box .el-tabs__item {
-  font-size: 12px;
-}
+  .marketing-box .el-tabs__item {
+    font-size: 12px;
+  }
 </style>

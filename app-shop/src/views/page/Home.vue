@@ -34,6 +34,18 @@
             </p>
             <p class="p-txt">视频组</p>
           </div>
+          <div class="item" @click="onAddItem('article')">
+            <p class="p-icon">
+              <Icon :iconname="'#icon-tuichu'"></Icon>
+            </p>
+            <p class="p-txt">文章组</p>
+          </div>
+          <div class="item" @click="onAddItem('special')">
+            <p class="p-icon">
+              <Icon :iconname="'#icon-tuichu'"></Icon>
+            </p>
+            <p class="p-txt">头条快报</p>
+          </div>
         </div>
       </div>
       <div class="min-group">
@@ -166,6 +178,7 @@
       onAddItem: function(key) {
         let self = this;
         // 复制默认diy组件数据
+      console.log(self.defaultData)
         var data = self.defaultData[key];
         self.diyData.items.push(data);
         // 编辑当前选中的元素

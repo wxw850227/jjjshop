@@ -84,7 +84,13 @@ class User extends UserModel
      */
     private function register($open_id, $data)
     {
-        $model = self::detail(['open_id' => $open_id])?:$this;
+        $user = self::detail(['open_id' => $open_id])?:$this;
+        if($user){
+            $model = $user;
+        }else{
+            $model = $this;
+            $data['reg_source'] = 'wx';
+        }
         $this->startTrans();
         try {
             // 保存/更新用户记录

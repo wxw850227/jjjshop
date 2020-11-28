@@ -129,6 +129,17 @@
 			"style": {
 				"navigationBarTitleText": "支付成功"
 			}
+		},{
+		    "path" : "pages/article/list/list",
+		    "style" : {
+				"navigationBarTitleText": "文章列表"
+			}
+		}
+		,{
+		    "path" : "pages/article/detail/detail",
+		    "style" : {
+				"navigationBarTitleText": "文章详情"
+			}
 		}
 	],
 	"globalStyle": {

@@ -2,6 +2,7 @@
 
 namespace app\api\model\page;
 
+use app\api\model\article\Article;
 use app\api\model\product\Product as ProductModel;
 use app\common\model\page\Page as PageModel;
 
@@ -39,6 +40,10 @@ class Page extends PageModel
                 $items[$key]['data'] = array_values($item['data']);
             } else if ($item['type'] === 'product') {
                 $items[$key]['data'] = $model->getProductList($user, $item);
+            } else if ($item['type'] === 'article') {
+                $items[$key]['data'] = $model->getArticleList($item);
+            } else if ($item['type'] === 'special') {
+                $items[$key]['data'] = $model->getSpecialList($item);
             }
         }
         return ['page' => $items['page'], 'items' => $items];
@@ -80,5 +85,27 @@ class Page extends PageModel
             ];
         }
         return $data;
+    }
+
+    /**
+     * 文章组件：获取文章列表
+     */
+    private function getArticleList($item)
+    {
+        // 获取文章数据
+        $model = new Article;
+        $articleList = $model->getList($item['params']['auto']['category'], $item['params']['auto']['showNum']);
+        return $articleList->isEmpty() ? [] : $articleList->toArray()['data'];
+    }
+
+    /**
+     * 头条快报：获取头条列表
+     */
+    private function getSpecialList($item)
+    {
+        // 获取头条数据
+        $model = new Article;
+        $articleList = $model->getList($item['params']['auto']['category'], $item['params']['auto']['showNum']);
+        return $articleList->isEmpty() ? [] : $articleList->toArray()['data'];
     }
 }

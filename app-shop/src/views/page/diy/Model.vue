@@ -40,6 +40,14 @@
         <template v-else-if="item.type == 'video'">
           <Video :item="item" :index="index" :selectedIndex="form.selectedIndex"></Video>
         </template>
+        <!--文章-->
+        <template v-else-if="item.type == 'article'">
+          <Article :item="item" :index="index" :selectedIndex="form.selectedIndex"></Article>
+        </template>
+        <!--头条快报-->
+        <template v-else-if="item.type == 'special'">
+          <Special :item="item" :index="index" :selectedIndex="form.selectedIndex"></Special>
+        </template
         <!--公告组-->
         <template v-else-if="item.type == 'notice'">
           <Notice :item="item" :index="index" :selectedIndex="form.selectedIndex"></Notice>
@@ -87,6 +95,8 @@ import RichText from './model/RichText.vue';
 import Blank from './model/Blank.vue';
 import Guide from './model/Guide.vue';
 import draggable from 'vuedraggable';
+import Article from './model/Article.vue';
+import Special from './model/Special.vue';
 export default {
   components: {
     /*搜索组件*/
@@ -114,7 +124,11 @@ export default {
     /*辅助线*/
     Guide,
     /*拖动*/
-    draggable
+    draggable,
+    /*文章*/
+    Article,
+    /*头条快报*/
+    Special
   },
   data() {
     return {};

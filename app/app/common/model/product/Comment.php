@@ -67,9 +67,9 @@ class Comment extends BaseModel
      */
     public function edit($data)
     {
-        return $this->where('comment_id', '=', $data['comment_id'])->save([
-            'status' => $data['status']
-        ]);
+       return $this->where('comment_id', '=', $data['comment_id'])->save([
+                'status' => $data['status']
+            ]);
     }
 
     /**

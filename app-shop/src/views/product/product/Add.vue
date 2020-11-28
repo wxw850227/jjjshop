@@ -105,7 +105,9 @@
         self.$refs.form.validate((valid) => {
           if (valid) {
             self.loading = true;
-            PorductApi.addProduct(params, true).then(data => {
+            PorductApi.addProduct({
+              params: JSON.stringify(params)
+            }, true).then(data => {
               self.loading = false;
               self.$message({
                 message: '添加成功',

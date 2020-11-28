@@ -1,7 +1,22 @@
 <template>
-	<view v-loading="loading">
+	<view>
 		<!--diy-->
-		<diy :diyItems="items"></diy>
+		<scroll-view scroll-y="true" class="scroll-Y" :style="'height:' + phoneHeight + 'px;'" v-if="!loadding">
+			<diy :diyItems="items"></diy>
+		</scroll-view>
+		<!--点击收藏-->
+		<view class="collection-box" v-if="is_collection">
+			<view class="inner">
+				<text>
+					点击“</text>
+				<text class="point">.</text>
+				<text class="point point-big">.</text>
+				<text class="point">.</text>
+				<text>”添加到我的小程序，\n微信首页下拉即可快速访问店铺
+				</text>
+			</view>
+			<button type="primary" class="close-btn" @click="is_collection=false">x</button>
+		</view>
 	</view>
 </template>
 
@@ -16,7 +31,13 @@ export default {
 			/*diy数据*/
 			items: [],
 			/*页面设置*/
-			setPage: {}
+			setPage: {},
+			/*是否正在加载*/
+			loadding:true,
+			/*手机高度*/
+			phoneHeight: 0,
+			/*收藏引导*/
+			is_collection: false,
 		};
 	},
 	onLoad() {
@@ -27,7 +48,20 @@ export default {
 
 		this.getData();
 	},
+	mounted() {
+		
+		this.init();
+	},
 	methods: {
+		/*初始化*/
+		init() {
+			let _this = this;
+			uni.getSystemInfo({
+				success(res) {
+					_this.phoneHeight = res.windowHeight;
+				}
+			});
+		},
 		/*获取数据*/
 		getData() {
 			let self = this;
@@ -47,6 +81,15 @@ export default {
 						timingFunc: 'easeIn'
 					}
 				});
+				//弹出收藏
+				// #ifdef  MP-WEIXIN
+				let isFirst = uni.getStorageSync('isFirst');
+				if (isFirst == '' && res.data.setting.collection.status == '1') {
+					self.is_collection = true;
+					uni.setStorageSync('isFirst', 1);
+				}
+				// #endif
+				self.loadding=false;
 			});
 		},
 

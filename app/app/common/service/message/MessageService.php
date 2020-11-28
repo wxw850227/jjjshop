@@ -2,9 +2,7 @@
 
 namespace app\common\service\message;
 
-use app\common\library\sms\Driver as SmsDriver;
 use app\common\model\settings\Setting as SettingModel;
-use app\common\model\user\User as UserModel;
 use app\common\enum\order\OrderTypeEnum;
 use app\common\model\settings\MessageSettings as MessageSettingsModel;
 use app\common\model\settings\Message as MessageModel;

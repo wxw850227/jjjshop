@@ -20,17 +20,16 @@ class Product extends ProductModel
             return false;
         }
         $data['content'] = isset($data['content']) ? $data['content'] : '';
-        $data['app_id'] = $data['sku']['app_id'] = self::$app_id;
+        $data['app_id'] = self::$app_id;
 
         // 开启事务
         $this->startTrans();
         try {
             $data = $this->setProductPriceStock($data);
             // 添加商品
-            $res = $this->save($data);
+            $this->save($data);
             // 商品规格
             $this->addProductSpec($data);
-
             // 商品图片
             $this->addProductImages($data['image']);
             $this->commit();
@@ -91,14 +90,14 @@ class Product extends ProductModel
             $data['product_stock'] = $data['sku']['stock_num'];
         } else if ($data['spec_type'] == '20') {
             //存最低价
-            $low_price = $data['sku'][0]['product_price'];
+            $low_price = $data['spec_many']['spec_list'][0]['spec_form']['product_price'];
             $total_stock = 0;
-            foreach($data['sku'] as $sku){
+            foreach($data['spec_many']['spec_list'] as $sku){
                 $sku['app_id'] = self::$app_id;
-                if($sku['product_price'] < $low_price){
-                    $low_price = $sku['product_price'];
+                if($sku['spec_form']['product_price'] < $low_price){
+                    $low_price = $sku['spec_form']['product_price'];
                 }
-                $total_stock += $sku['stock_num'];
+                $total_stock += $sku['spec_form']['stock_num'];
             }
             $data['product_price'] = $low_price;
             $data['product_stock'] = $total_stock;
@@ -117,6 +116,7 @@ class Product extends ProductModel
         // 添加规格数据
         if ($data['spec_type'] == '10') {
             // 单规格
+            $data['sku']['app_id'] = self::$app_id;
             $this->sku()->save($data['sku']);
         } else if ($data['spec_type'] == '20') {
             // 添加商品与规格关系记录

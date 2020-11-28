@@ -125,7 +125,11 @@
         self.$refs.form.validate((valid) => {
           if (valid) {
             self.save_loading = true;
-            PorductApi.editProduct(params, true).then(data => {
+            PorductApi.editProduct({
+              product_id: self.product_id,
+              scene: self.scene,
+              params: JSON.stringify(params)
+            }, true).then(data => {
               self.save_loading = false;
               self.$message({
                 message: '保存成功',

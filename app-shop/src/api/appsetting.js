@@ -9,6 +9,14 @@ let AppSettingApi = {
   editAppWx(data, errorback) {
     return request._post('/shop/appsettings.appwx/edit', data, errorback);
   },
+  /*公众号*/
+  appmpDetail(data, errorback) {
+    return request._get('/shop/appsettings.appmp/index', data, errorback);
+  },
+  /*公众号*/
+  editAppMp(data, errorback) {
+    return request._post('/shop/appsettings.appmp/index', data, errorback);
+  },
 }
 
 export default AppSettingApi;

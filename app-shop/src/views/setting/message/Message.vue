@@ -12,6 +12,12 @@
           <el-table-column prop="message_type" label="所属"></el-table-column>
           <el-table-column prop="message_name" label="通知名称"></el-table-column>
           <el-table-column prop="remark" label="推送规则"></el-table-column>
+          <el-table-column label="公众号通知" v-if="message_to == 10">
+            <template slot-scope="scope">
+              <el-checkbox v-model="scope.row.mp_status" @change="checked=>mpStatusChange(checked, scope.row)">启用</el-checkbox>
+              <el-link type="primary" :underline="false" style="padding-left: 10px;" @click="mpClick(scope.row)">设置</el-link>
+            </template>
+          </el-table-column>
           <el-table-column label="小程序通知" v-if="message_to == 10">
             <template slot-scope="scope">
               <el-checkbox v-model="scope.row.wx_status" @change="checked=>wxStatusChange(checked, scope.row)">启用</el-checkbox>
@@ -28,6 +34,8 @@
       </div>
     </div>
 
+    <!--公众号-->
+    <Mp v-if="open_mp" :open_mp="open_mp" :messageModel="messageModel" @closeDialog="closeDialogFunc($event, 'mp')"></Mp>
     <!--小程序-->
     <Wx v-if="open_wx" :open_wx="open_wx" :messageModel="messageModel" @closeDialog="closeDialogFunc($event, 'wx')"></Wx>
     <!--短信-->
@@ -37,11 +45,13 @@
 
 <script>
   import MessageApi from '@/api/message.js';
+  import Mp from './settings/Mp.vue';
   import Wx from './settings/Wx.vue';
   import Sms from './settings/Sms.vue';
 
   export default {
     components: {
+      Mp,
       Wx,
       Sms
     },
@@ -51,6 +61,7 @@
         loading: true,
         /*列表数据*/
         tableData: [],
+        open_mp: false,
         open_wx: false,
         open_sms: false,
         /*当前编辑的对象*/
@@ -81,6 +92,7 @@
             self.loading = false;
             self.tableData = data.data.list;
             self.tableData.forEach(function(message) {
+              message.mp_status = message.mp_status === 1 ? true : false;
               message.wx_status = message.wx_status === 1 ? true : false;
               message.sms_status = message.sms_status === 1 ? true : false;
               if (message.message_settings_id == null) {
@@ -91,6 +103,11 @@
           .catch(error => {
 
           });
+      },
+      /*公众号消息模板设置*/
+      mpClick(item) {
+        this.messageModel = item;
+        this.open_mp = true;
       },
       /*微信小程序消息模板设置*/
       wxClick(item) {
@@ -104,6 +121,12 @@
       },
       /*关闭弹窗*/
       closeDialogFunc(e, f) {
+        if (f == 'mp') {
+          this.open_mp = e.openDialog;
+          if (e.type == 'success') {
+            this.getData();
+          }
+        }
         if (f == 'wx') {
           this.open_wx = e.openDialog;
           if (e.type == 'success') {
@@ -117,11 +140,35 @@
           }
         }
       },
+      mpStatusChange: function(checked, row) {
+        let self = this;
+
+        if (row.message_settings_id == 0 || row['mp_template'] == null) {
+          self.$alert('请先点击右边设置，设置模板规则', '提示', {
+            confirmButtonText: '确定'
+          });
+          row.mp_status = false;
+          return;
+        }
+        self.loading = true;
+        MessageApi.updateSettingsStatus({
+            message_type: 'mp',
+            message_settings_id: row.message_settings_id
+          }, true)
+          .then(data => {
+            self.loading = false;
+            row.mp_status = checked;
+          })
+          .catch(error => {
+            self.loading = false;
+            row.mp_status = !checked;
+          });
+      },
       wxStatusChange: function(checked, row) {
         let self = this;
 
         if (row.message_settings_id == 0 || row['wx_template'] == null) {
-          self.$alert('请先点击左边设置，设置模板规则', '提示', {
+          self.$alert('请先点击右边设置，设置模板规则', '提示', {
             confirmButtonText: '确定'
           });
           row.wx_status = false;
@@ -145,7 +192,7 @@
         let self = this;
 
         if (row.message_settings_id == 0 || row['sms_template'] == null) {
-          self.$alert('请先点击左边设置，设置模板规则', '提示', {
+          self.$alert('请先点击右边设置，设置模板规则', '提示', {
             confirmButtonText: '确定'
           });
           row.sms_status = false;

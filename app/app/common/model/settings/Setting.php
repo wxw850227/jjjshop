@@ -161,6 +161,13 @@ class Setting extends BaseModel
                     ]
                 ],
             ],
+            'collection' => [
+                'key' => 'collection',
+                'describe' => '引导收藏',
+                'values' => [
+                    'status' => 0
+                ],
+            ],
         ];
     }
 

@@ -28,7 +28,28 @@ app.$mount()
 
 Vue.prototype.websiteUrl = config.app_url;
 Vue.prototype.app_id = config.app_id;
+//h5发布路径
+Vue.prototype.h5_addr = config.h5_addr;
 
+//#ifdef H5
+app.$router.afterEach((to, from) => {
+	const u = navigator.userAgent.toLowerCase()
+	if (u.indexOf("like mac os x") < 0 || u.match(/MicroMessenger/i) != 'micromessenger') return
+	if (to.path !== global.location.pathname) {
+		location.assign(config.h5_addr + to.fullPath);
+	}
+})
+//#endif
+
+
+//是否是ios
+Vue.prototype.ios = function() {
+	const u = navigator.userAgent.toLowerCase();
+	if (u.indexOf("like mac os x") < 0 || u.match(/MicroMessenger/i) != 'micromessenger') {
+		return false;
+	}
+	return true;
+};
 
 //get请求
 Vue.prototype._get = function(path, data, success, fail, complete) {
@@ -112,11 +133,22 @@ Vue.prototype.doLogin = function() {
 		let currentPage = pages[pages.length - 1];
 		if ("pages/login/login" != currentPage.route) {
 			uni.setStorageSync("currentPage", currentPage.route);
+			uni.setStorageSync("currentPageOptions", currentPage.options);
 		}
 	}
+	//公众号
+	// #ifdef  H5
+	if(this.isWeixn()){
+		window.location.href = this.websiteUrl + '/index.php/api/user.usermp/login?app_id=' + this.getAppId() +
+			'&referee_id=' + uni.getStorageSync('referee_id');
+	}
+	// #endif
+	// 非公众号,跳转授权页面
+	// #ifndef  H5
 	uni.navigateTo({
 		url: "/pages/login/login"
 	});
+	// #endif
 };
 
 
@@ -194,4 +226,23 @@ Vue.prototype.getAppId = function() {
  */
 Vue.prototype.getUserId = function() {
 	return uni.getStorageSync('user_id');
+};
+
+/**
+ * 生成转发的url参数
+ */
+Vue.prototype.getShareUrlParams = function(params) {
+	let self = this;
+	return utils.urlEncode(Object.assign({
+		referee_id: self.getUserId()
+	}, params));
+};
+
+Vue.prototype.isWeixn = function(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
 };

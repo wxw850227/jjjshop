@@ -19,24 +19,12 @@ class Product extends Controller
     {
         // 整理请求的参数
         $param = array_merge($this->postData(), [
-            'search' => '',
             'product_status' => 10
         ]);
 
         // 获取列表数据
         $model = new ProductModel;
         $list = $model->getList($param, $this->getUser(false));
-        return $this->renderSuccess('', compact('list'));
-    }
-
-    /**
-     * 推荐产品
-     */
-    public function recommendProduct()
-    {
-        $data = $this->postData();
-        $model = new ProductModel;
-        $list = $model->getRecommendProduct($data);
         return $this->renderSuccess('', compact('list'));
     }
 

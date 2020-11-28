@@ -106,7 +106,6 @@ class Product extends BaseModel
     public function getList($param)
     {
         $model = $this;
-
         // 商品列表默认搜索条件
         $params = array_merge([
             'search' => '',
@@ -116,6 +115,7 @@ class Product extends BaseModel
             'sortPrice' => false,   // 价格排序 高低
             'list_rows' => 15,       // 每页数量
         ], $param);
+
 
         // 筛选条件
         $filter = [];
@@ -182,7 +182,6 @@ class Product extends BaseModel
             ->paginate($params, false, [
                 'query' => \request()->request(),
             ]);
-
         // 整理列表数据并返回
         return $this->setProductListData($list, true);
     }

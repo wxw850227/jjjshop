@@ -32,6 +32,14 @@
       <template  v-if="form.curItem.type == 'video'">
         <Video :curItem="form.curItem" :selectedIndex="form.selectedIndex"></Video>
       </template>
+      <!--文章组件-->
+      <template v-if="form.curItem.type == 'article'">
+        <Article :curItem="form.curItem" :selectedIndex="form.selectedIndex"></Article>
+      </template>
+      <!--头条快报-->
+      <template v-if="form.curItem.type == 'special'">
+        <Special :curItem="form.curItem" :selectedIndex="form.selectedIndex"></Special>
+      </template>
       <!--公告组-->
       <template  v-if="form.curItem.type == 'notice'">
         <Notice :curItem="form.curItem" :opts="opts" :selectedIndex="form.selectedIndex"></Notice>
@@ -90,6 +98,8 @@
   import Guide from './params/Guide.vue';
   import Upload from '@/components/file/Upload';
   import ProductSelect from '@/components/product/Product';
+  import Article from './params/Article.vue';
+  import Special from './params/Special.vue';
 
   export default {
     components: {
@@ -123,6 +133,10 @@
       Upload,
       /*商品选择*/
       ProductSelect,
+      Article,
+      /*文章*/
+      Special,
+      /*公告组*/
     },
     data() {
       return {

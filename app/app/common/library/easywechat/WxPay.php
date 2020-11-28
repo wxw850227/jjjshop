@@ -34,8 +34,7 @@ class WxPay
             'attach' => json_encode(['order_type' => $orderType]),
             'body' => $order_no,
             'out_trade_no' => $order_no,
-            //'total_fee' => $totalFee * 100,// 价格:单位分
-            'total_fee' => 1,// 价格:单位分
+            'total_fee' => $totalFee * 100,// 价格:单位分
             'spbill_create_ip' => \request()->ip(),
             'notify_url' => base_url() . 'index.php/job/notify/wxpay',  // 异步通知地址
             'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型

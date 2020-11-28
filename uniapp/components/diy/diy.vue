@@ -25,7 +25,17 @@
 			<template v-if="item.type == 'video'">
 			  <videos :itemData="item"></videos>
 			</template>
-		
+			
+			<!--文章-->
+			<template v-if="item.type == 'article'&&item.data!=null">
+			  <articles :itemData="item"></articles>
+			</template>
+			
+			<!--头条快报-->
+			<template v-if="item.type == 'special'&&item.data!=null">
+			  <special :itemData="item"></special>
+			</template>
+			
 			<!--公告组-->
 			<template v-if="item.type == 'notice'">
 			  <notice :itemData="item"></notice>
@@ -78,6 +88,8 @@
 	import blank from './blank/blank';
 	import guide from './guide/guide';
 	import product from './product/product';
+	import articles from './article/article';
+	import special from './special/special';
 	
 	export default{
 		components:{
@@ -92,7 +104,9 @@
 			service,
 			blank,
 			guide,
-			product
+			product,
+			articles,
+			special
 		},
 		data(){
 			return {
