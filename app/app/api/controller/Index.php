@@ -19,7 +19,8 @@ class Index extends Controller
         // 页面元素
         $data = AppPage::getPageData($this->getUser(false), $page_id);
         $data['setting'] = array(
-            'collection' => SettingModel::getItem('collection')
+            'collection' => SettingModel::getItem('collection'),
+            'officia' => SettingModel::getItem('officia'),
         );
         return $this->renderSuccess('', $data);
     }

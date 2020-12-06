@@ -168,6 +168,13 @@ class Setting extends BaseModel
                     'status' => 0
                 ],
             ],
+            'officia' => [
+                'key' => 'officia',
+                'describe' => '公众号关注',
+                'values' => [
+                    'status' => 0
+                ],
+            ],
         ];
     }
 

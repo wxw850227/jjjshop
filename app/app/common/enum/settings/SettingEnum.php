@@ -11,18 +11,17 @@ class SettingEnum extends Enum
 {
     // 商城设置
     const STORE = 'store';
-
     // 交易设置
     const TRADE = 'trade';
-
     // 上传设置
     const STORAGE = 'storage';
-
     // 短信通知
     const SMS = 'sms';
-
     // 引导收藏
     const COLLECTION = 'collection';
+    // 公众号设置
+    const OFFICIA = 'officia';
+
 
     /**
      * 获取订单类型值
@@ -49,6 +48,10 @@ class SettingEnum extends Enum
             self::COLLECTION => [
                 'value' => self::COLLECTION,
                 'describe' => '引导收藏',
+            ],
+            self::OFFICIA => [
+                'value' => self::OFFICIA,
+                'describe' => '公众号设置',
             ],
         ];
     }

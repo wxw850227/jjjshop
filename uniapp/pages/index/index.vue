@@ -17,6 +17,14 @@
 			</view>
 			<button type="primary" class="close-btn" @click="is_collection=false">x</button>
 		</view>
+		
+		<!--关注公众号-->
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="follow-gzh" v-if="is_follow==1">
+			<text class="icon iconfont icon-guanbi" @click="is_follow=0"></text>
+			<official-account></official-account>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -38,6 +46,8 @@ export default {
 			phoneHeight: 0,
 			/*收藏引导*/
 			is_collection: false,
+			/*关注*/
+			is_follow: '0',
 		};
 	},
 	onLoad() {
@@ -88,6 +98,7 @@ export default {
 					self.is_collection = true;
 					uni.setStorageSync('isFirst', 1);
 				}
+				self.is_follow = res.data.setting.officia.status;
 				// #endif
 				self.loadding=false;
 			});
