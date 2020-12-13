@@ -21,6 +21,8 @@ class SettingEnum extends Enum
     const COLLECTION = 'collection';
     // 公众号设置
     const OFFICIA = 'officia';
+    // 公众号客服设置
+    const MP_SERVICE = 'mp_service';
 
 
     /**
@@ -52,6 +54,10 @@ class SettingEnum extends Enum
             self::OFFICIA => [
                 'value' => self::OFFICIA,
                 'describe' => '公众号设置',
+            ],
+            self::MP_SERVICE => [
+                'value' => self::MP_SERVICE,
+                'describe' => '客服设置',
             ],
         ];
     }

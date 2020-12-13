@@ -51,7 +51,9 @@ class Product extends Controller
             // 购物车商品总数量
             'cart_total_num' => $user ? (new CartModel($user))->getProductNum() : 0,
             // 多规格商品sku信息
-            'specData' => $specData
+            'specData' => $specData,
+            // 微信公众号分享参数
+            'share' => $this->getShareParams($url, $product['product_name'], $product['product_name'], '/pages/product/detail/detail', $product['image'][0]['file_path']),
         ]);
     }
 

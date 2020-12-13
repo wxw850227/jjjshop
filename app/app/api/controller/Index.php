@@ -25,4 +25,11 @@ class Index extends Controller
         return $this->renderSuccess('', $data);
     }
 
+    // 公众号客服
+    public function mpService()
+    {
+        $mp_service = SettingModel::getItem('mp_service');
+        return $this->renderSuccess('', compact('mp_service'));
+    }
+
 }

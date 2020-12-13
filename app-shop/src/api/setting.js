@@ -113,6 +113,14 @@ let SettingApi = {
   /*修改短信设置*/
   editSms(data, errorback) {
     return request._post('/shop/settings.sms/index', data, errorback);
+  },
+  /*获取客服设置*/
+  getMpService(data, errorback) {
+    return request._get('/shop/settings.mpService/index', data, errorback);
+  },
+  /*修改客服设置*/
+  setMpService(data, errorback) {
+    return request._post('/shop/settings.mpService/index', data, errorback);
   }
 
 }

@@ -74,4 +74,31 @@ class Controller extends JjjController
         return $user;
     }
 
+    protected function getShareParams($url, $title = '', $desc = '', $link = '', $imgUrl = '')
+    {
+        $signPackage = '';
+        $shareParams = '';
+        if (Env::get('APP_DEBUG')) {
+            return [
+                'signPackage' => $signPackage,
+                'shareParams' => $shareParams
+            ];
+        }
+        if ($url != '') {
+            $app = AppMp::getApp($this->app_id);
+            $app->jssdk->setUrl($url);
+            $signPackage = $app->jssdk->buildConfig(array('updateAppMessageShareData', 'updateTimelineShareData'), false);
+            $shareParams = [
+                'title' => $title,
+                'desc' => $desc,
+                'link' => $link,
+                'imgUrl' => $imgUrl,
+            ];
+        }
+        return [
+            'signPackage' => $signPackage,
+            'shareParams' => $shareParams
+        ];
+    }
+
 }

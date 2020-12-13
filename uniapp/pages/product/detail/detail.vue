@@ -67,7 +67,14 @@
 
 		<!--底部按钮-->
 		<view class="btns-wrap">
-			<view class="icon-box d-c-c"><button class="icon iconfont icon-kefu2" open-type="contact" session-from="wxapp"></button></view>
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="icon-box d-c-c">
+				<button class="icon iconfont icon-kefu2" open-type="contact" session-from="wxapp"></button>
+			</view>
+			<!-- #endif -->
+			<!-- #ifdef H5 -->
+			<view class="icon-box d-c-c" @click="openMaservice"><button class="icon iconfont icon-kefu2"></button></view>
+			<!-- #endif -->
 			<view class="icon-box d-c-c" @click="gotocart">
 				<button class="pr icon iconfont icon-gouwuche">
 					<text v-if="cart_total_num > 0" class="num">{{ cart_total_num }}</text>
@@ -97,6 +104,8 @@
 				<!-- #endif -->
 			</view>
 		</uniPopup>
+		<!--客服-->
+		<Mpservice v-if="isMpservice" :isMpservice="isMpservice" @close="closeMpservice"></Mpservice>
 	</view>
 </template>
 
@@ -105,11 +114,13 @@ import share from './popup/share.vue';
 import spec from './popup/spec.vue';
 import uniPopup from '@/components/uni-popup.vue';
 import utils from '@/common/utils.js';
+import Mpservice from '@/components/mpservice/Mpservice.vue';
 export default {
 	components: {
 		spec,
 		share,
-		uniPopup
+		uniPopup,
+		Mpservice
 	},
 	data() {
 		return {
@@ -150,7 +161,9 @@ export default {
 			isbottmpanel: false,
 			/*是否生成图片*/
 			isCreatedImg: false,
-			poster_img: ''
+			poster_img: '',
+			/*是否打开客服*/
+			isMpservice: false,
 		};
 	},
 	onLoad(e) {
@@ -333,7 +346,15 @@ export default {
 					});
 				}
 			});
-		}
+		},
+		/*打开客服*/
+		openMaservice() {
+			this.isMpservice = true;
+		},
+		/*关闭客服*/
+		closeMpservice() {
+			this.isMpservice = false;
+		},
 	}
 };
 </script>

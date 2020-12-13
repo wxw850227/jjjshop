@@ -175,6 +175,18 @@ class Setting extends BaseModel
                     'status' => 0
                 ],
             ],
+            'mp_service' => [
+                'key' => 'mp_service',
+                'describe' => '公众号客服设置',
+                'values' => [
+                    // qq
+                    'qq' => '',
+                    // 微信
+                    'wechat' => '',
+                    // 微信公众号图片
+                    'mp_image' => '',
+                ],
+            ],
         ];
     }
 

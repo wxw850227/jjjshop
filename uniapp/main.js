@@ -246,3 +246,38 @@ Vue.prototype.isWeixn = function(){
         return false;
     }
 };
+
+//#ifdef H5
+var jweixin = require('jweixin-module');
+
+Vue.prototype.configWx = function(signPackage, shareParams, params) {
+	if (signPackage == '') {
+		return;
+	}
+	let self = this;
+	jweixin.config(JSON.parse(signPackage));
+
+	let url_params = self.getShareUrlParams(params);
+
+	jweixin.ready(function(res) {
+		jweixin.updateAppMessageShareData({
+			title: shareParams.title,
+			desc: shareParams.desc,
+			link: self.websiteUrl + self.h5_addr + shareParams.link + '?' + url_params,
+			imgUrl: shareParams.imgUrl,
+			success: function() {
+
+			}
+		});
+		jweixin.updateTimelineShareData({
+			title: shareParams.title,
+			desc: shareParams.desc,
+			link: self.websiteUrl + self.h5_addr + shareParams.link + '?' + url_params,
+			imgUrl: shareParams.imgUrl,
+			success: function() {
+
+			}
+		});
+	});
+};
+//#endif
