@@ -199,7 +199,7 @@ export default {
 		/*提交订单*/
 		SubmitOrder() {
 			let self = this;
-			let pay_source = 'wx';
+			let pay_source = self.getPlatform();
 			uni.showLoading({
 				title: '加载中',
 				mask:true

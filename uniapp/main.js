@@ -281,3 +281,19 @@ Vue.prototype.configWx = function(signPackage, shareParams, params) {
 	});
 };
 //#endif
+
+
+/**
+ * 获取当前平台
+ */
+Vue.prototype.getPlatform = function(params) {
+	let platform = 'wx';
+	// #ifdef  H5
+	if(this.isWeixn()){
+		platform = 'mp';
+	}else{
+		platform = 'h5';
+	}
+	// #endif
+	return platform;
+};

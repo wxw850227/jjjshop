@@ -27,11 +27,10 @@ class WxPay
     /**
      * 统一下单API
      */
-    public function unifiedorder($order_no, $openid, $totalFee, $orderType = OrderTypeEnum::MASTER)
+    public function unifiedorder($order_no, $openid, $totalFee, $orderType = OrderTypeEnum::MASTER, $pay_source)
     {
-        // 统一下单
-        $result = $this->app->order->unify([
-            'attach' => json_encode(['order_type' => $orderType]),
+        $data = [
+            'attach' => json_encode(['order_type' => $orderType, 'pay_source' => $pay_source]),
             'body' => $order_no,
             'out_trade_no' => $order_no,
             'total_fee' => $totalFee * 100,// 价格:单位分
@@ -39,7 +38,9 @@ class WxPay
             'notify_url' => base_url() . 'index.php/job/notify/wxpay',  // 异步通知地址
             'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
             'openid' => $openid
-        ]);
+        ];
+        // 统一下单
+        $result = $this->app->order->unify($data);
         // 请求失败
         if ($result['return_code'] === 'FAIL') {
             throw new BaseException(['msg' => "微信支付api：{$result['return_msg']}", 'code' => -10]);
@@ -47,22 +48,26 @@ class WxPay
         if ($result['result_code'] === 'FAIL') {
             throw new BaseException(['msg' => "微信支付api：{$result['err_code_des']}", 'code' => -10]);
         }
-        $time = time();
-        // 二次签名的参数必须与下面相同
-        $params = [
-            'appId' => $result['appid'],//有所修改
-            'timeStamp' => $time,
-            'nonceStr' => $result['nonce_str'],
-            'package' => 'prepay_id=' . $result['prepay_id'],
-            'signType' => 'MD5',
-        ];
-        $result['paySign'] = $this->makeSign($params);
-        return [
-            'prepay_id' => $result['prepay_id'],
-            'nonceStr' => $result['nonce_str'],
-            'timeStamp' => (String)$time,
-            'paySign' => $result['paySign']
-        ];
+        //如果是微信小程序
+        if($pay_source == 'wx') {
+            $time = time();
+            // 二次签名的参数必须与下面相同
+            $params = [
+                'appId' => $result['appid'],//有所修改
+                'timeStamp' => $time,
+                'nonceStr' => $result['nonce_str'],
+                'package' => 'prepay_id=' . $result['prepay_id'],
+                'signType' => 'MD5',
+            ];
+            $result['paySign'] = $this->makeSign($params);
+            return [
+                'prepay_id' => $result['prepay_id'],
+                'nonceStr' => $result['nonce_str'],
+                'timeStamp' => (string)$time,
+                'paySign' => $result['paySign']
+            ];
+        }
+        return $result;
     }
 
     /**
@@ -86,7 +91,11 @@ class WxPay
         $order = $PaySuccess->model;
         empty($order) && $this->returnCode(false, '订单不存在');
         // 支付配置信息
-        $this->app = AppWx::getWxPayApp($order['app_id']);
+        if($attach['pay_source'] == 'mp'){
+            $this->app = AppMp::getWxPayApp($order['app_id']);
+        } else if($attach['pay_source'] == 'wx'){
+            $this->app = AppWx::getWxPayApp($order['app_id']);
+        }
 
         // 保存微信服务器返回的签名sign
         $dataSign = $data['sign'];
