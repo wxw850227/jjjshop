@@ -9,7 +9,7 @@ use app\common\service\message\MessageService;
 use app\common\service\order\OrderRefundService;
 use app\common\enum\order\OrderPayStatusEnum;
 use app\common\service\product\factory\MasterProductService;
-
+use app\common\enum\settings\DeliveryTypeEnum;
 
 /**
  * 订单模型
@@ -300,7 +300,7 @@ class Order extends OrderModel
         }
         // 订单取消事件
         $status = $this->transaction(function () use ($data) {
-            if ($data['is_cancel'] == true) {
+            if ($data['is_cancel'] == 2) {
                 // 执行退款操作
                 (new OrderRefundService)->execute($this);
                 // 回退商品库存

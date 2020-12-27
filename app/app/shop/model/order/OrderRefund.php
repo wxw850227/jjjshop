@@ -43,7 +43,7 @@ class OrderRefund extends OrderRefundModel
         // 获取列表数据
         return $model->alias('m')
             ->field('m.*, order.order_no')
-            ->with(['orderProduct.image', 'orderMaster', 'user'])
+            ->with(['orderproduct.image', 'orderMaster', 'user'])
             ->join('order', 'order.order_id = m.order_id')
             ->order(['m.create_time' => 'desc'])
             ->paginate($params, false, [
@@ -131,7 +131,6 @@ class OrderRefund extends OrderRefundModel
     {
         // 订单详情
         $order = Order::detail($this['order_id']);
-//        if ($data['refund_money'] > min($order['pay_price'], $this['order_product']['total_pay_price'])) {
         if ($data['refund_money'] > $order['pay_price']) {
             $this->error = '退款金额不能大于商品实付款金额';
             return false;

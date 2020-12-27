@@ -119,15 +119,9 @@
 		onLoad(e) {
 			/*分类id*/
 			this.category_id = e.category_id;
-			if (e.search != '') {
-				this.search = e.search;
-			}
-			if (e.sortType != '') {
-				this.sortType = e.sortType;
-			}
-			if (e.sortPrice > 0) {
-				this.sortPrice = e.sortPrice;
-			}
+			this.search = e.search ? e.search : '';
+			this.sortType = e.sortType ? e.sortType : 'all';
+			this.sortPrice = e.sortPrice ? e.sortPrice : 0;
 		},
 		mounted() {
 			this.init();

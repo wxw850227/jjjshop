@@ -62,7 +62,7 @@ class OrderRefund extends OrderRefundModel
         $model = $this;
         $state > -1 && $model = $this->where('status', '=', $state);
 
-        return $model->with(['order_master', 'orderProduct.image'])
+        return $model->with(['order_master', 'orderproduct.image'])
             ->where('user_id', '=', $user_id)
             ->order(['create_time' => 'desc'])
             ->paginate($limit, false, [

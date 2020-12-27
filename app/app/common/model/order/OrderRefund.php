@@ -33,7 +33,7 @@ class OrderRefund extends BaseModel
     /**
      * 关联订单商品表
      */
-    public function orderProduct()
+    public function orderproduct()
     {
         return $this->belongsTo('app\\common\\model\\order\\OrderProduct', 'order_product_id', 'order_product_id');
     }
@@ -94,7 +94,7 @@ class OrderRefund extends BaseModel
      */
     public static function detail($where)
     {
-        return static::with(['orderMaster', 'image.file', 'orderProduct.image', 'express', 'address', 'user'])->find($where);
+        return static::with(['orderMaster', 'image.file', 'orderproduct.image', 'express', 'address', 'user'])->find($where);
     }
 
 }
