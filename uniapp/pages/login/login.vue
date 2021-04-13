@@ -9,9 +9,8 @@
 		<view class="auth-title">申请获取以下权限</view>
 		<view class="auth-subtitle">获得你的公开信息（昵称、头像等）</view>
 		<view class="login-btn">
-			<!-- <button class="btn-normal" openType="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">授权登录</button> -->
 			<!-- #ifdef MP-WEIXIN -->
-			<button open-type="getUserInfo" class="btn-normal" @getuserinfo="wxGetUserInfo" lang="zh_CN">授权登录</button>
+			<button class="btn-normal" @click="getUserInfo">授权登录</button>
 			<!-- #endif -->
 		</view>
 		<view class="no-login-btn">
@@ -41,28 +40,29 @@
 					_this.background = res.data.background;
 				});
 			},
-			wxGetUserInfo: function(e) {
+			getUserInfo: function() {
 				let self = this;
-				if (e.detail.errMsg !== 'getUserInfo:ok') {
-					return false;
-				}
-				uni.showLoading({
-					title: "正在登录",
-					mask: true
-				});
-				// 执行微信登录
-				uni.login({
-					success(res) {
-						wx.getUserInfo({
-							lang: 'zh_CN',
-							success: function(result) {
+				wx.getUserProfile({
+					lang: 'zh_CN',
+					desc: '用于完善会员资料', 
+					success: (res) => {
+						if (res.errMsg !== 'getUserProfile:ok') {
+							return false;
+						}
+						uni.showLoading({
+							title: "正在登录",
+							mask: true
+						});
+						// 执行微信登录
+						wx.login({
+							success(res_login) {
 								// 发送用户信息
-								self._post('passport/login', {
-									code: res.code,
-									user_info: e.detail.rawData,
-									encrypted_data: encodeURIComponent(e.detail.encryptedData),
-									iv: encodeURIComponent(e.detail.iv),
-									signature: e.detail.signature,
+								self._post('user.user/login', {
+									code: res_login.code,
+									user_info: res.rawData,
+									encrypted_data: encodeURIComponent(res.encryptedData),
+									iv: encodeURIComponent(res.iv),
+									signature: res.signature,
 									referee_id: uni.getStorageSync('referee_id'),
 									source: 'wx'
 								}, result => {
@@ -79,7 +79,6 @@
 					}
 				});
 			},
-			
 			/*暂不登录，直接跳转首页*/
 			onNotLogin(){
 				uni.switchTab({

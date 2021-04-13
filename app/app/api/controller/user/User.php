@@ -16,7 +16,7 @@ class User extends Controller
     public function login()
     {
         $model = new UserModel;
-        return $this->renderSuccess([
+        return $this->renderSuccess('',[
             'user_id' => $model->login($this->request->post()),
             'token' => $model->getToken()
         ]);
@@ -29,7 +29,7 @@ class User extends Controller
     {
         // 当前用户信息
         $userInfo = $this->getUser();
-        return $this->renderSuccess(compact('userInfo'));
+        return $this->renderSuccess('', compact('userInfo'));
     }
 
 }
