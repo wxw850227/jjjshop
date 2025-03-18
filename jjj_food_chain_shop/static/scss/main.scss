@@ -1,0 +1,80 @@
+.draggable-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.draggable-list .wrapper{
+    display: flex;
+}
+.draggable-list .wrapper>span {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.draggable-list .item {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+}
+
+.draggable-list .delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: red;
+    line-height: 16px;
+    font-size: 16px;
+    color: #ffffff;
+    display: none;
+}
+
+.draggable-list .item:hover .delete-btn {
+    display: block;
+}
+
+.draggable-list .item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.draggable-list .img-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #dddddd;
+    font-size: 30px;
+}
+
+.draggable-list .img-select i {
+    color: #409eff;
+}
+/* 编译器 */
+.edit_container {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    line-height: 20px;
+    color: #2c3e50;
+    height: auto !important;
+  }
+  .ql-editor {
+    height: 400px;
+  }
+  .tips {
+    color: #ccc;
+    width: 100%;
+  }

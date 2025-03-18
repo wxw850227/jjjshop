@@ -1,0 +1,315 @@
+.diy-container {
+	display: flex;
+	margin: 0 !important;
+	padding: 0 !important;
+	background: none !important;
+
+	.diy-menu {
+		padding: 0;
+		width: 280px;
+		box-sizing: border-box;
+		background-color: #fff;
+		height: calc(100vh - 98px);
+		overflow-y: auto;
+	}
+
+	.min-group {
+		.el-collapse-item__wrap {
+			border: none;
+		}
+
+		.el-collapse-item {
+			border: none;
+		}
+
+		.el-collapse-item__header {
+			border: none;
+			padding-left: 16px;
+		}
+
+		.hd {
+			position: relative;
+			height: 30px;
+			line-height: 30px;
+			color: #cccccc;
+			font-size: 14px;
+
+			&::after {
+				position: absolute;
+				content: '';
+				border: 4px solid transparent;
+				border-top-color: #cccccc;
+				right: 0;
+				top: 12px;
+			}
+		}
+
+		.bd {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-items: center;
+			padding-left: 16px;
+			padding-top: 16px;
+
+			.item {
+				position: relative;
+				width: 70px;
+				height: 70px;
+				margin-right: 16px;
+				margin-bottom: 16px;
+				border-radius: 10px;
+				cursor: pointer;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				&:hover {
+					box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.15);
+				}
+
+				// &:hover::after {
+				// 	position: absolute;
+				// 	top: 7px;
+				// 	right: 0;
+				// 	display: block;
+				// 	content: '+';
+				// 	width: 16px;
+				// 	height: 16px;
+				// 	line-height: 16px;
+				// 	border-radius: 50%;
+				// 	text-align: center;
+				// 	border: 1px solid #3a8ee6;
+				// }
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.p-icon {
+		// display: none;
+		color: #409eff;
+		padding-top: 6px;
+	}
+
+	.p-text {
+		line-height: 20px;
+	}
+
+	.diy-phone {
+		overflow-y: scroll;
+		flex: 1;
+		height: calc(100vh - 108px);
+		.model-wrap{
+			width: 375px;
+			margin: 0 auto;
+			padding: 0;
+		}
+		.pr{
+			// width: 375px;
+			// margin: 0 auto;
+			// padding: 0;
+		}
+	}
+
+	.diy-info {
+		// flex: 1;
+		width: 476px;
+		box-sizing: border-box;
+		background-color: #fff;
+		height: calc(100vh - 98px);
+		overflow-y: auto;
+		z-index: 1;
+	}
+}
+
+.diy-editor {
+	.common-form {
+		font-size: 16px;
+		height: 62px;
+		line-height: 62px;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 0;
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.form-item {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 15px;
+	margin-right: 10px;
+
+	.form-label {
+		width: 120px;
+		text-align: right;
+		flex-shrink: 0;
+		margin-right: 10px;
+	}
+
+	.el-input {}
+}
+
+// .scroll-ybox {
+// 	overflow-y: auto;
+// }
+
+// .diy-phone-container {
+// 	width: 375px;
+// 	margin: auto;
+
+// }
+
+.diy-container {
+	.el-form-item {
+		margin-right: 10px;
+	}
+
+	.el-form-item>label {
+		width: 120px !important;
+		font-weight: 400;
+		margin-right: 10px;
+		text-align: right;
+		padding-right: 0;
+	}
+
+	.el-form-item>.el-form-item__label {
+		width: 120px !important;
+		font-weight: 400;
+		margin-right: 10px;
+		text-align: right;
+		padding-right: 0;
+	}
+}
+
+.el-radio-button:first-child .el-radio-button__inner {
+	border-radius: 0;
+}
+
+.el-radio-button:last-child .el-radio-button__inner {
+	border-radius: 0;
+}
+
+.el-radio-button {
+	// margin-right: 10px;
+}
+
+.form-chink {
+	width: 100%;
+	height: 6px;
+	background: #f6f8fb;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.key-name {
+	padding-right: 20px;
+	white-space: nowrap;
+}
+
+.param-img-item.navbar {
+	width: 438px;
+	height: 132px;
+	background: #f9f9f9;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	position: relative;
+
+	.el-icon-DeleteFilled {
+		font-size: 22px;
+		position: absolute;
+		right: -10px;
+		top: -6px;
+		background-color: #333;
+		color: #fff;
+		border-radius: 50%;
+		padding: 4px;
+	}
+
+	.icon {
+		img {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			width: 56px;
+			height: 56px;
+		}
+	}
+}
+
+.el-radio-button--small .el-radio-button__inner {
+	border-left: 1px solid #dcdfe6;
+}
+
+.el-radio-button--small .el-radio-button__inner {
+	padding: 8px 23px;
+	// border-radius: 4px;
+}
+
+.el-radio-button {
+	// margin-bottom: 10px;
+}
+
+.diy-phone-container .diy-phone-item {
+	position: relative;
+}
+
+.diy-phone-container .diy-phone-item .draggable-title:hover {
+	border: none;
+}
+
+.diy-phone-container .diy-phone-item.active .draggable-title {
+	border: none;
+}
+
+.diy-phone-container .diy-phone-item .draggable-title {
+	position: absolute;
+	left: -90px;
+	min-width: 70px;
+	min-height: 20px;
+	padding: 4px 7px;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 20px;
+	font-size: 12px;
+	background: #fff;
+	border-radius: 2px;
+	top: 0;
+	z-index: 1;
+	border: none;
+	cursor: move;
+}
+
+.diy-phone-container .diy-phone-item .draggable-title.draggable-title.right {
+	left: auto;
+	right: -90px;
+}
+
+.f14 {
+	font-size: 14px;
+}
+.btn-edit-del {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+	.btn-del{
+		width: 32px;
+		height: 16px;
+		line-height: 16px;
+		display: inline-block;
+		text-align: center;
+		font-size: 10px;
+		color: #fff;
+		background: rgba(0, 0, 0, 0.4);
+		margin-left: 2px;
+		cursor: pointer;
+	}
+}

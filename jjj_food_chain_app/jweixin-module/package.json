@@ -1,0 +1,60 @@
+{
+  "_from": "jweixin-module",
+  "_id": "jweixin-module@1.4.1",
+  "_inBundle": false,
+  "_integrity": "sha1-H8j6QmIiQ/bDVlHScs1Yfev1bNE=",
+  "_location": "/jweixin-module",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jweixin-module",
+    "name": "jweixin-module",
+    "escapedName": "jweixin-module",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/jweixin-module/download/jweixin-module-1.4.1.tgz",
+  "_shasum": "1fc8fa42622243f6c35651d272cd587debf56cd1",
+  "_spec": "jweixin-module",
+  "_where": "D:\\xampp",
+  "author": {
+    "name": "Shengqiang Guo"
+  },
+  "bugs": {
+    "url": "https://github.com/zhetengbiji/jweixin-module/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "微信JS-SDK",
+  "devDependencies": {
+    "textfile": "^1.2.0",
+    "uglify-js": "^3.4.9"
+  },
+  "homepage": "https://github.com/zhetengbiji/jweixin-module#readme",
+  "keywords": [
+    "wxjssdk",
+    "weixin",
+    "jweixin",
+    "wechat",
+    "jssdk",
+    "wx"
+  ],
+  "license": "ISC",
+  "main": "out/index.js",
+  "name": "jweixin-module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhetengbiji/jweixin-module.git"
+  },
+  "scripts": {
+    "build": "node build",
+    "prepublish": "npm run build"
+  },
+  "version": "1.4.1"
+}

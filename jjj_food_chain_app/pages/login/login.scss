@@ -1,0 +1,129 @@
+page {
+	background-color: #ffffff;
+}
+
+.login-container {
+	position: relative;
+	min-height: 100vh;
+	padding: 0 68rpx;
+}
+.login_topbpx {
+	padding: 148rpx 0 52rpx 0;
+}
+
+.login_tit {
+	font-weight: bold;
+	font-size: 38rpx;
+	margin-bottom: 28rpx;
+	color: #000;
+}
+
+.login_top {
+	font-size: 26rpx;
+	color: #000;
+}
+.login-container .form-level {
+	padding-top: 19rpx;
+	height: 99rpx;
+	line-height: 99rpx;
+	border-bottom: 1px solid #eee;
+	.login-input {
+		flex: 1;
+		height: 99rpx;
+		line-height: 99rpx;
+		font-size: 26rpx;
+	}
+}
+
+.get-code-btn {
+	min-width: 182rpx;
+	height: 58rpx;
+	line-height: 58rpx;
+	padding: 0rpx 30rpx;
+	border-radius: 50rpx;
+	white-space: nowrap;
+	background-color: #ffffff;
+	@include font_color('notice-price');
+	font-size: 26rpx;
+	box-sizing: border-box;
+}
+
+.get-code-btn[disabled='true'] {
+	background: #f7f7f7;
+}
+
+.sub-btn {
+	width: 596rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	border-radius: 45rpx;
+	margin: 0 auto;
+	margin-top: 30rpx;
+	margin-bottom: 28rpx;
+}
+
+.bottom_nav {
+	width: 100%;
+	position: absolute;
+	bottom: 100rpx;
+}
+.bottom-box {
+	width: 70%;
+	margin: 0 auto;
+}
+.other_tit {
+	height: 1rpx;
+	background-color: #cacaca;
+	width: 100%;
+	line-height: 1rpx;
+	text-align: center;
+}
+.weixin_box {
+	background-color: #04be01;
+	border-radius: 50%;
+	width: 80rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+}
+.weixin_box .icon-weixin {
+	font-size: 40rpx;
+	color: #ffffff;
+}
+.skip {
+	position: absolute;
+	top: 70rpx;
+	right: 66rpx;
+	font-size: 26rpx;
+	color: #999999;
+}
+.xieyi-box {
+	position: fixed;
+	bottom: 62rpx;
+	left: 0;
+	width: 100%;
+}
+.agreement {
+	border-radius: 50%;
+	width: 28rpx;
+	height: 28rpx;
+	border: 1px solid #ccc;
+	background: #fff;
+	position: relative;
+	margin-right: 10rpx;
+	box-sizing: border-box;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18rpx;
+	font-weight: bold;
+}
+
+.agreement.active {
+	@include font_color('font_color_inverse');
+	@include background_color('background_color');
+	@include border_color('border_color');
+}

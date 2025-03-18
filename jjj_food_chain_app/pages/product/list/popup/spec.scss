@@ -1,0 +1,227 @@
+.pop-spec {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 998;
+	.pop-bg {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		right: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.65);
+		z-index: 1;
+	}
+	.good-detail-modal {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 998;
+		height: 90vh;
+		box-sizing: border-box;
+		padding-bottom: 240rpx;
+		overflow-y: auto;
+		background: #fff;
+		border-radius: 25rpx 25rpx 0rpx 0rpx;
+		// padding-top: 10vh;
+		.icon.iconfont.icon-guanbi1 {
+			position: fixed;
+			right: 24rpx;
+			top: calc(10vh + 16rpx);
+			z-index: 30;
+			width: 58rpx;
+			height: 58rpx;
+			background: rgba(0, 0, 0, 0.45);
+			border-radius: 50%;
+			font-size: 30rpx;
+			color: #ffffff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.product-images {
+		.product-image {
+			width: 750rpx;
+			height: 565rpx;
+			border-radius: 25rpx 25rpx 0rpx 0rpx;
+		}
+	}
+}
+
+.product-name {
+	position: sticky;
+	top: -1rpx;
+	left: 0;
+	font-size: 34rpx;
+	color: #333;
+	font-weight: 800;
+	padding: 0 26rpx;
+	background: #ffffff;
+	z-index: 21;
+	height: 90rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.good_basic {
+	padding: 0 26rpx;
+	padding-bottom: 30rpx;
+	.sell-point {
+		margin-top: 20rpx;
+		color: #999;
+	}
+}
+
+.product-specs {
+	margin: 0 24rpx;
+	padding-top: 26rpx;
+	border-top: 1px solid #eee;
+
+	.property {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		.title {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			margin-bottom: 20rpx;
+			.name {
+				font-size: 24rpx;
+				color: #333;
+			}
+		}
+		.values {
+			display: flex;
+			flex-wrap: wrap;
+			.value {
+				border-radius: 12rpx;
+				height: 62rpx;
+				line-height: 62rpx;
+				background-color: #f2f2f2;
+				padding: 0 36rpx;
+				font-size: 24rpx;
+				color: #333333;
+				margin-right: 18rpx;
+				margin-bottom: 22rpx;
+				&.default {
+					@include background_color('background_color');
+					@include font_color('font_color_inverse');
+				}
+			}
+		}
+	}
+}
+.spec-bottom {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 20;
+	background-color: #ffffff;
+	box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2);
+	height: 240rpx;
+	// padding-bottom: env(safe-area-inset-bottom);
+	.action {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 124rpx;
+		padding: 0 24rpx;
+		.btn-group {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+
+			.number {
+				font-size: 24rpx;
+				width: 48rpx;
+				height: 48rpx;
+				line-height: 48rpx;
+				text-align: center;
+			}
+
+			.add-image {
+				display: block;
+				width: 48rpx;
+				height: 48rpx;
+			}
+		}
+	}
+}
+.addCart-btn {
+	width: 702rpx;
+	height: 88rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include background_color('background_color');
+	@include font_color('font_color_inverse');
+	font-size: 30rpx;
+	font-weight: bold;
+	border-radius: 44rpx;
+	margin: 0 auto;
+	margin-bottom: 28rpx;
+}
+.product-content {
+	border-top: 20rpx solid #F5F5F5;
+	background: #ffffff;
+}
+
+.group-hd {
+	height: 73rpx;
+}
+
+.min-name {
+	height: 73rpx;
+	line-height: 73rpx;
+}
+
+.min-name::after {
+	position: absolute;
+	content: '';
+	width: 38rpx;
+	height: 5rpx;
+	@include background_color('background_color');
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 0;
+}
+.contentVideo,
+.contentVideo image {
+	width: 750rpx;
+	position: relative;
+}
+.contentVideo video {
+	width: 750rpx;
+	height: 422rpx;
+}
+.contentVideo .icon.icon-bofang {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	font-size: 48rpx;
+	color: #ffffff;
+	border-radius: 50%;
+	border: 4rpx solid #ffffff;
+	width: 120rpx;
+	height: 120rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #00000080;
+	padding-left: 16rpx;
+	box-sizing: border-box;
+	z-index: 10;
+}
